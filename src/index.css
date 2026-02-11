@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 45% 6%;
+    --foreground: 190 25% 88%;
+
+    --card: 220 35% 10%;
+    --card-foreground: 190 25% 88%;
+
+    --popover: 220 35% 10%;
+    --popover-foreground: 190 25% 88%;
+
+    --primary: 185 80% 45%;
+    --primary-foreground: 220 45% 6%;
+
+    --secondary: 220 30% 14%;
+    --secondary-foreground: 190 25% 88%;
+
+    --muted: 220 25% 18%;
+    --muted-foreground: 200 15% 55%;
+
+    --accent: 175 85% 40%;
+    --accent-foreground: 220 45% 6%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 200 40% 20%;
+    --input: 220 30% 16%;
+    --ring: 185 80% 45%;
+
+    --radius: 0.5rem;
+
+    --glow-primary: 185 80% 45%;
+    --glow-accent: 175 85% 40%;
+    --sonar-green: 160 90% 45%;
+    --depth-1: 220 35% 8%;
+    --depth-2: 220 35% 12%;
+    --depth-3: 220 35% 16%;
+
+    --sidebar-background: 220 35% 8%;
+    --sidebar-foreground: 190 25% 88%;
+    --sidebar-primary: 185 80% 45%;
+    --sidebar-primary-foreground: 220 45% 6%;
+    --sidebar-accent: 220 30% 14%;
+    --sidebar-accent-foreground: 190 25% 88%;
+    --sidebar-border: 200 40% 20%;
+    --sidebar-ring: 185 80% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/40 backdrop-blur-xl border border-border/50 rounded-lg;
+    box-shadow:
+      0 0 15px hsl(var(--primary) / 0.05),
+      inset 0 1px 0 hsl(var(--primary) / 0.1);
+  }
+
+  .glass-panel-strong {
+    @apply bg-card/60 backdrop-blur-2xl border border-primary/20 rounded-lg;
+    box-shadow:
+      0 0 30px hsl(var(--primary) / 0.08),
+      inset 0 1px 0 hsl(var(--primary) / 0.15);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.3), inset 0 0 10px hsl(var(--primary) / 0.05);
+  }
+
+  .scanline {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(var(--primary) / 0.03) 2px,
+      hsl(var(--primary) / 0.03) 4px
+    );
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+
+  .hud-corner {
+    @apply relative;
+  }
+  .hud-corner::before,
+  .hud-corner::after {
+    content: '';
+    @apply absolute w-4 h-4 border-primary/40;
+  }
+  .hud-corner::before {
+    @apply top-0 left-0 border-t border-l;
+  }
+  .hud-corner::after {
+    @apply bottom-0 right-0 border-b border-r;
+  }
+}
+
+/* Sonar pulse animation */
+@keyframes sonar-pulse {
+  0% { transform: scale(0.2); opacity: 0.8; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes sonar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes depth-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes grid-scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes bubble-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-50vh) scale(1.2); opacity: 0.2; }
+  100% { transform: translateY(-100vh) scale(0.8); opacity: 0; }
+}
+
+@keyframes typing-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-sonar-pulse {
+  animation: sonar-pulse 3s ease-out infinite;
+}
+
+.animate-sonar-sweep {
+  animation: sonar-sweep 4s linear infinite;
+}
+
+.animate-flicker {
+  animation: flicker 4s ease-in-out infinite;
+}
+
+.animate-depth-float {
+  animation: depth-float 6s ease-in-out infinite;
+}
+
+.animate-grid-scan {
+  animation: grid-scan 8s linear infinite;
+}
+
+.animate-typing-cursor {
+  animation: typing-cursor 1s step-end infinite;
+}
+
+.animate-bubble-rise {
+  animation: bubble-rise 10s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
