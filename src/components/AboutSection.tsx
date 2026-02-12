@@ -42,10 +42,7 @@ const AboutSection = () => {
             real-time interfaces, and complex UI architecture. Every project is a mission executed with precision.
           </p>
         </motion.div>
-
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical line */}
           <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/30 via-primary/10 to-transparent" />
 
           <div className="space-y-12">
@@ -57,7 +54,6 @@ const AboutSection = () => {
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
                 className="relative pl-16 md:pl-20"
               >
-                {/* Dot */}
                 <div className="absolute left-[18px] md:left-[26px] top-1 w-3 h-3 rounded-full border-2 border-primary bg-background" />
 
                 <div className="glass-panel p-6 hud-corner">

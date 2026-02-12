@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Radar, Map, Radio, Waves, LayoutDashboard } from "lucide-react";
+import { Radar, Map, LayoutDashboard } from "lucide-react";
 
 const projects = [
   {

@@ -1,7 +1,6 @@
 const SonarBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {/* Grid overlay */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
@@ -12,7 +11,6 @@ const SonarBackground = () => {
         }}
       />
 
-      {/* Sonar pulse rings */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 -translate-x-1/2 -translate-y-1/2">
         {[0, 1, 2].map((i) => (
           <div
@@ -23,7 +21,6 @@ const SonarBackground = () => {
         ))}
       </div>
 
-      {/* Floating particles */}
       {Array.from({ length: 20 }).map((_, i) => (
         <div
           key={i}
@@ -37,7 +34,6 @@ const SonarBackground = () => {
         />
       ))}
 
-      {/* Rising bubble columns */}
       {Array.from({ length: 6 }).map((_, i) => (
         <div
           key={`bubble-col-${i}`}
@@ -50,7 +46,6 @@ const SonarBackground = () => {
         />
       ))}
 
-      {/* Secondary sonar origin - bottom right */}
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 translate-x-1/2 translate-y-1/2">
         {[0, 1].map((i) => (
           <div
@@ -60,8 +55,6 @@ const SonarBackground = () => {
           />
         ))}
       </div>
-
-      {/* Gradient vignette */}
       <div className="absolute inset-0"
         style={{
           background: `radial-gradient(ellipse at center, transparent 30%, hsl(var(--background)) 70%)`

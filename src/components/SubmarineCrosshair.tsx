@@ -7,7 +7,6 @@ const SubmarineCrosshair = () => {
   const rafRef = useRef<number>(0);
   const targetRef = useRef({ x: 0, y: 0 });
 
-  // Measure header height dynamically
   useEffect(() => {
     const measure = () => {
       const header = document.querySelector("header") || document.querySelector("nav");
@@ -33,7 +32,6 @@ const SubmarineCrosshair = () => {
         return { x: lx, y: ly };
       });
 
-      // Bearing: screen center = 0°, right = +, left = -
       const centerX = window.innerWidth / 2;
       const raw = ((t.x - centerX) / centerX) * 180;
       setBearing(((raw % 360) + 360) % 360);
@@ -53,7 +51,6 @@ const SubmarineCrosshair = () => {
 
   return (
     <div className="hidden md:block fixed inset-0 pointer-events-none z-40">
-      {/* Horizontal line */}
       <div
         className="absolute left-0 right-0"
         style={{
@@ -62,8 +59,6 @@ const SubmarineCrosshair = () => {
           background: `linear-gradient(90deg, transparent, hsl(var(--primary) / 0.15) ${xPercent - 35}%, hsl(var(--primary) / 0.4) ${xPercent - 5}%, hsl(var(--primary) / 0.6) ${xPercent}%, hsl(var(--primary) / 0.4) ${xPercent + 5}%, hsl(var(--primary) / 0.15) ${xPercent + 35}%, transparent)`,
         }}
       />
-
-      {/* Vertical line */}
       <div
         className="absolute"
         style={{
@@ -74,8 +69,6 @@ const SubmarineCrosshair = () => {
           background: `linear-gradient(180deg, transparent, hsl(var(--primary) / 0.15) 10%, hsl(var(--primary) / 0.4) 40%, hsl(var(--primary) / 0.6) ${((clampedY - headerHeight) / (window.innerHeight - headerHeight)) * 100}%, hsl(var(--primary) / 0.15) 90%, transparent)`,
         }}
       />
-
-      {/* Center reticle */}
       <div
         className="absolute w-5 h-5 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/40"
         style={{ left: pos.x, top: clampedY }}
@@ -84,8 +77,6 @@ const SubmarineCrosshair = () => {
         className="absolute w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/30"
         style={{ left: pos.x, top: clampedY }}
       />
-
-      {/* Bearing readout near cursor */}
       <div
         className="absolute font-mono text-[9px] text-primary/50 tracking-[0.2em]"
         style={{ left: pos.x + 14, top: clampedY + 10 }}

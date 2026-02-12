@@ -4,9 +4,8 @@ import { ChevronDown } from "lucide-react";
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Sonar center ring */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="relative w-[500px] h-[500px] md:w-[700px] md:h-[700px]">
+        <div className="relative w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[700px] md:h-[700px]">
           {[0, 1, 2, 3].map((i) => (
             <div
               key={i}
@@ -16,7 +15,6 @@ const HeroSection = () => {
               }}
             />
           ))}
-          {/* Sweep line */}
           <div className="absolute inset-0 animate-sonar-sweep origin-center">
             <div
               className="absolute top-1/2 left-1/2 w-1/2 h-px origin-left"
@@ -78,22 +76,34 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex items-center justify-center gap-4"
         >
-          <a
-            href="#projects"
-            className="glass-panel-strong px-8 py-3 font-mono text-xs tracking-[0.15em] text-primary hover:bg-primary/10 transition-colors duration-300"
+          <button
+            onClick={() => {
+              const el = document.getElementById("projects");
+              if (el) {
+                const offset = 80;
+                const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+            }}
+            className="glass-panel-strong px-8 py-3 font-mono text-xs tracking-[0.15em] text-primary hover:bg-primary/10 transition-colors duration-300 cursor-pointer"
           >
             VIEW MISSIONS
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-3 font-mono text-xs tracking-[0.15em] text-muted-foreground border border-border/50 rounded-lg hover:border-primary/40 hover:text-primary transition-all duration-300"
+          </button>
+          <button
+            onClick={() => {
+              const el = document.getElementById("contact");
+              if (el) {
+                const offset = 80;
+                const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+            }}
+            className="px-8 py-3 font-mono text-xs tracking-[0.15em] text-muted-foreground border border-border/50 rounded-lg hover:border-primary/40 hover:text-primary transition-all duration-300 cursor-pointer"
           >
             TRANSMIT
-          </a>
+          </button>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

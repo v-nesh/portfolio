@@ -45,11 +45,10 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[9998]">
-      {/* Nav bar */}
       <nav
         className={`transition-all duration-500 ${scrolled || mobileOpen
-            ? "bg-background/95 backdrop-blur-xl border-b border-primary/20 py-3"
-            : "py-5"
+          ? "bg-background/95 backdrop-blur-xl border-b border-primary/20 py-3"
+          : "py-5"
           }`}
         style={{
           boxShadow:
@@ -66,8 +65,6 @@ const Navbar = () => {
           >
             {"<DEV/>"}
           </a>
-
-          {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
@@ -81,8 +78,6 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-
-          {/* Mobile toggle */}
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
@@ -93,8 +88,6 @@ const Navbar = () => {
           </button>
         </div>
       </nav>
-
-      {/* Mobile menu — rendered OUTSIDE nav to avoid overflow clipping */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

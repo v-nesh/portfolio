@@ -84,7 +84,7 @@ const Index = () => {
         <ProjectsSection />
         <SectionDivider variant="depth" />
         <SkillsSection />
-        <SectionDivider variant="signal" />
+        <SectionDivider variant="comms" />
         <ContactSection />
       </main>
     </div>

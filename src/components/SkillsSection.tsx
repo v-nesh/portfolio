@@ -32,8 +32,8 @@ const RadarChart = ({ skills, size = 260 }: { skills: typeof frontendSkills; siz
   const polygonPoints = points.map((p) => `${p.x},${p.y}`).join(" ");
 
   return (
-    <div className="relative">
-      <svg width={size} height={size} className="overflow-visible">
+    <div className="relative w-full max-w-[220px] sm:max-w-[260px] mx-auto">
+      <svg width="100%" height="100%" viewBox={`0 0 ${size} ${size}`} className="overflow-visible">
         {[0.25, 0.5, 0.75, 1].map((scale, i) => (
           <circle key={i} cx={center} cy={center} r={maxR * scale}
             fill="none" stroke="hsl(var(--primary))" strokeOpacity={0.1} strokeWidth={1} />
@@ -79,7 +79,7 @@ const SkillsSection = () => {
   const backendInView = useInView(backendRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="relative py-32 px-6">
+    <section id="skills" className="relative py-32 px-6 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -25,15 +25,9 @@ const DepthMeter = () => {
       transition={{ delay: 1.5, duration: 0.6 }}
       className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-1"
     >
-      {/* Depth label */}
       <div className="font-mono text-[9px] tracking-[0.2em] text-primary/50 mb-2">DEPTH</div>
-
-      {/* Meter track */}
       <div className="relative w-6 h-64">
-        {/* Track background */}
         <div className="absolute inset-x-0 inset-y-0 w-px left-1/2 -translate-x-1/2 bg-border/40" />
-
-        {/* Depth markers */}
         {depthMarkers.map((m, i) => {
           const y = (i / (depthMarkers.length - 1)) * 100;
           return (
@@ -49,14 +43,10 @@ const DepthMeter = () => {
             </div>
           );
         })}
-
-        {/* Active fill */}
         <div
           className="absolute left-1/2 -translate-x-1/2 w-px top-0 bg-primary/60 transition-all duration-150"
           style={{ height: `${scrollProgress * 100}%` }}
         />
-
-        {/* Current depth indicator */}
         <motion.div
           className="absolute left-1/2 -translate-x-1/2 w-3 h-3 -ml-px"
           style={{ top: `${scrollProgress * 100}%` }}
@@ -65,8 +55,6 @@ const DepthMeter = () => {
           <div className="absolute inset-0 rounded-full bg-primary/30 animate-sonar-pulse" />
         </motion.div>
       </div>
-
-      {/* Digital readout */}
       <div className="mt-3 glass-panel px-2 py-1.5 text-center">
         <div className="font-mono text-[10px] text-primary tabular-nums">
           {depth.toString().padStart(4, "0")}m
@@ -76,7 +64,6 @@ const DepthMeter = () => {
         </div>
       </div>
 
-      {/* Pressure warning */}
       {scrollProgress > 0.7 && (
         <motion.div
           initial={{ opacity: 0 }}
