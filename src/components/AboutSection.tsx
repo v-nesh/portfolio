@@ -6,14 +6,14 @@ import { Compass, Anchor, Navigation } from "lucide-react";
 const missionLog = [
   {
     year: "2025 — PRESENT",
-    title: "Frontend Engineer",
+    title: "Software Engineer",
     org: "Aeolus Aero Tech.",
     desc: "Developed interactive map visualizations and data-driven interfaces using React, TypeScript and OpenLayers.",
     icon: Navigation,
   },
   {
     year: "2023 — 2025",
-    title: "Frontend Developer",
+    title: "Software Developer",
     org: "TechSwing Solutions.",
     desc: "Leading React architecture for real-time monitoring dashboards. Building performant WebSocket-driven UIs.",
     icon: Compass,

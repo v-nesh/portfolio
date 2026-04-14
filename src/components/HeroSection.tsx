@@ -55,7 +55,7 @@ const HeroSection = () => {
         >
           <span className="w-8 h-px bg-primary/40" />
           <p className="font-mono text-sm tracking-[0.15em] text-muted-foreground">
-            Web Developer <span className="text-primary">|</span> React Specialist
+            Software Developer
           </p>
           <span className="w-8 h-px bg-primary/40" />
         </motion.div>
